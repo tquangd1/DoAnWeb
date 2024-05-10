@@ -23,6 +23,12 @@
                elseif($tam=='lienhe'){
                     include("main/lienhe.php");
                }
+                elseif($tam=='dangky'){
+                    include("main/dangky.php");
+               }
+               elseif($tam=='doimatkhau'){
+                    include("main/doimatkhau.php");
+               }    
                elseif($tam=='sanpham'){
                     include("main/sanpham.php");
                }
