@@ -21,13 +21,15 @@ if (isset($_POST['themsanpham'])) {
                  VALUES ('$tensanpham', '$masp', '$giasp', '$soluong', '$hinhanh', '$tomtat', '$noidung', '$tinhtrang','$danhmuc')";
     mysqli_query($mysqli, $sql_them);
     move_uploaded_file($hinhanh_tmp,'uploads/'.$hinhanh);
-    header('location: ../../index.php?action=quanlysanpham&query=them');
+    header('location: ../../index.php?action=quanlysp&query=them');
 } elseif (isset($_POST['suasanpham'])) {
     // Sửa sản phẩm
     if($hinhanh!=''){
+
         move_uploaded_file($hinhanh_tmp,'uploads/'.$hinhanh);
+
         $id= $_GET['idsanpham'];
-        $sql = "select * FROM tbl_sanpham WHERE id_sanpham='$_GET[idsanpham]' limit 1";
+        $sql = "SELECT * FROM tbl_sanpham WHERE id_sanpham='$_GET[idsanpham]' limit 1";
         $query=mysqli_query($mysqli,$sql);
         while($row=mysqli_fetch_array($query))
         {
@@ -37,7 +39,7 @@ if (isset($_POST['themsanpham'])) {
             hinhanh='$hinhanh', tomtat='$tomtat', noidung='$noidung', tinhtrang='$tinhtrang',id_danhmuc=$danhmuc WHERE id_sanpham='$_GET[idsanpham]'";
 
         $id= $_GET['idsanpham'];
-        $sql = "select * FROM tbl_sanpham WHERE id_sanpham='$_GET[idsanpham]' limit 1";
+        $sql = "SELECT * FROM tbl_sanpham WHERE id_sanpham='$_GET[idsanpham]' limit 1";
         $query=mysqli_query($mysqli,$sql);
         while($row=mysqli_fetch_array($query))
         {
@@ -48,7 +50,7 @@ if (isset($_POST['themsanpham'])) {
                 tomtat='$tomtat', noidung='$noidung', tinhtrang='$tinhtrang',id_danhmuc=$danhmuc WHERE id_sanpham='$_GET[idsanpham]'";
     }
     mysqli_query($mysqli, $sql_update);
-        header('location: ../../index.php?action=quanlysanpham&query=sua&idsanpham='.$id_sanpham);
+    header('location: ../../index.php?action=quanlysp&query=them');
 }
  else 
 {
@@ -62,6 +64,7 @@ if (isset($_POST['themsanpham'])) {
     }
     $sql_xoa = "delete from tbl_sanpham where id_sanpham='".$id."'";
     mysqli_query($mysqli, $sql_xoa);
-    header('location: ../../index.php?action=quanlysanpham&query=xoa');
+
+    header('location: ../../index.php?action=quanlysp&query=them');
 }
 ?>
