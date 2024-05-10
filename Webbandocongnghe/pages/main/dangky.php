@@ -7,7 +7,7 @@ if(isset($_POST['dangky']))
     $email = $_POST['email'];
     $dienthoai = $_POST['dienthoai'];
     $diachi = $_POST['diachi'];
-    $matkhau = password_hash($_POST['matkhau'], PASSWORD_DEFAULT);
+    $matkhau = $_POST['matkhau'];
 
     $sql_dangky = mysqli_query($mysqli, "INSERT INTO tbl_dangky (tenkhachhang, email, diachi, matkhau, dienthoai) VALUES ('".$tenkhachhang."', '".$email."', '".$diachi."', '".$matkhau."', '".$dienthoai."')");
 
@@ -15,6 +15,7 @@ if(isset($_POST['dangky']))
     {
         echo '<p style="color:green">Đăng Ký Thành Công</p>';
         $_SESSION['dangky']= $tenkhachhang;
+        header('Location:index.php?quanly=giohang');
     }
 }
 ?>
@@ -48,6 +49,7 @@ if(isset($_POST['dangky']))
         </tr>
         <tr>
             <td colspan="2"><input type="submit" name="dangky" value="Đăng Ký"></td>
+            <td><a href="index.php?quanly=dangnhap">Đăng Nhập Nếu Đã Có Tài Khoản</a></td>
         </tr>
     </table>
 </form>
