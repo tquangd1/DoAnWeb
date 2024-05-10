@@ -2,7 +2,7 @@
 include('config.php');
 if(isset($_POST['dangky']))
 {
-    
+
     $tenkhachang = $_POST['tenkhachang'];
     $email = $_POST['email'];
     $dienthoai = $_POST['dienthoai'];
