@@ -2,18 +2,19 @@
 include('config.php');
 if(isset($_POST['dangky']))
 {
-
-    $tenkhachang = $_POST['tenkhachang'];
+    
+    $tenkhachhang = $_POST['hovaten'];
     $email = $_POST['email'];
     $dienthoai = $_POST['dienthoai'];
     $diachi = $_POST['diachi'];
     $matkhau = password_hash($_POST['matkhau'], PASSWORD_DEFAULT);
 
-    $sql_dangky = mysqli_query($mysqli, "INSERT INTO tbl_dangky (tenkhachang, email, diachi, matkhau, dienthoai) VALUES ('".$tenkhachang."', '".$email."', '".$diachi."', '".$matkhau."', '".$dienthoai."')");
+    $sql_dangky = mysqli_query($mysqli, "INSERT INTO tbl_dangky (tenkhachhang, email, diachi, matkhau, dienthoai) VALUES ('".$tenkhachhang."', '".$email."', '".$diachi."', '".$matkhau."', '".$dienthoai."')");
 
     if($sql_dangky)
     {
         echo '<p style="color:green">Đăng Ký Thành Công</p>';
+        $_SESSION['dangky']= $tenkhachhang;
     }
 }
 ?>
