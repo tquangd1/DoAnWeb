@@ -33,13 +33,13 @@
         <tr>
             <td>Danh mục sản phẩm</td>
             <td>
-                <select name="tinhtrang">
+                <select name="danhmuc">
                     <?php
-                        $sql_danhmuc = "select * from tbl_danhmuc ORDER BY id_danhmuc DESC";
+                        $sql_danhmuc = "SELECT * FROM tbl_danhmuc ORDER BY id_danhmuc DESC";
                         $query_danhmuc = mysqli_query($mysqli,$sql_danhmuc);
                         while($row_danhmuc = mysqli_fetch_array( $query_danhmuc)){
                     ?>
-                    <option value="1"><?php echo $row_danhmuc['tendanhmuc']?></option>
+                    <option value="<?php echo $row_danhmuc['id_danhmuc']?>"><?php echo $row_danhmuc['tendanhmuc']?></option>
                     <?php
                     }
                     ?>
